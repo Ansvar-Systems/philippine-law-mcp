@@ -1,0 +1,183 @@
+{
+  "$schema": "./golden-tests.schema.json",
+  "version": "1.0",
+  "mcp_name": "Philippine Law MCP",
+  "description": "Golden contract tests for the Philippine Law MCP covering Data Privacy Act, Cybercrime Prevention Act, SIM Registration Act, E-Commerce Act, Revised Corporation Code, and Consumer Act",
+  "tests": [
+    {
+      "id": "ph-001",
+      "category": "article_retrieval",
+      "description": "Retrieve Section 3 of the Data Privacy Act 2012 (RA 10173) -- definition of terms including personal information",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 10173",
+        "article": "3"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "text_contains": ["personal information", "sensitive personal information"],
+        "fields_present": ["text", "article_number"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "ph-002",
+      "category": "article_retrieval",
+      "description": "Retrieve Section 3 of the Cybercrime Prevention Act 2012 (RA 10175) -- definition of terms",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 10175",
+        "article": "3"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["computer", "cyber", "data"],
+        "fields_present": ["text", "article_number"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "ph-003",
+      "category": "article_retrieval",
+      "description": "Retrieve Section 1 of the Revised Corporation Code 2019 (RA 11232) -- title and scope",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 11232",
+        "article": "1"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["Corporation Code", "corporation"],
+        "fields_present": ["text", "article_number"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "ph-004",
+      "category": "article_retrieval",
+      "description": "Retrieve Section 1 of the E-Commerce Act 2000 (RA 8792) -- short title",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 8792",
+        "article": "1"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["Electronic Commerce", "electronic"],
+        "fields_present": ["text"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "ph-005",
+      "category": "search",
+      "description": "Full-text search for 'personal information' returns Data Privacy Act provisions",
+      "tool": "search_legislation",
+      "input": {
+        "query": "personal information"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "min_results": 1,
+        "any_result_contains": ["Data Privacy Act", "personal information", "RA 10173"]
+      }
+    },
+    {
+      "id": "ph-006",
+      "category": "search",
+      "description": "Full-text search for 'cybercrime' returns Cybercrime Prevention Act provisions",
+      "tool": "search_legislation",
+      "input": {
+        "query": "cybercrime"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "min_results": 1,
+        "any_result_contains": ["Cybercrime Prevention", "cyber", "computer"]
+      }
+    },
+    {
+      "id": "ph-007",
+      "category": "search",
+      "description": "Full-text search for 'electronic commerce' returns E-Commerce Act provisions",
+      "tool": "search_legislation",
+      "input": {
+        "query": "electronic commerce"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "min_results": 1,
+        "any_result_contains": ["Electronic Commerce", "electronic", "transaction"]
+      }
+    },
+    {
+      "id": "ph-008",
+      "category": "citation_roundtrip",
+      "description": "Citation for Data Privacy Act Section 11 (general data privacy principles) includes lawphil.net URL pattern",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 10173",
+        "article": "11"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "citation_url_pattern": "lawphil\\.net",
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "ph-009",
+      "category": "citation_roundtrip",
+      "description": "Citation for Consumer Act Section 1 includes official identifier",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 7394",
+        "article": "1"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "fields_present": ["text"],
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "ph-010",
+      "category": "eu_cross_reference",
+      "description": "Data Privacy Act cross-reference to GDPR -- Philippines seeking EU adequacy decision",
+      "tool": "get_provision_eu_basis",
+      "input": {
+        "law_identifier": "Republic Act No. 10173"
+      },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["GDPR", "General Data Protection Regulation", "2016/679", "adequacy"]
+      }
+    },
+    {
+      "id": "ph-011",
+      "category": "negative_test",
+      "description": "Non-existent Republic Act returns graceful error or empty result",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 99999 Fictional Space Law",
+        "article": "1"
+      },
+      "assertions": {
+        "handles_gracefully": true
+      }
+    },
+    {
+      "id": "ph-012",
+      "category": "negative_test",
+      "description": "Malformed section number returns graceful error or empty result",
+      "tool": "get_provision",
+      "input": {
+        "law_identifier": "Republic Act No. 10173",
+        "article": "999ZZZ-INVALID"
+      },
+      "assertions": {
+        "handles_gracefully": true
+      }
+    }
+  ]
+}

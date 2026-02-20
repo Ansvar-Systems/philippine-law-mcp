@@ -1,0 +1,56 @@
+{
+  "$schema": "./golden-hashes.schema.json",
+  "version": "1.0",
+  "mcp_name": "Philippine Law MCP",
+  "jurisdiction": "PH",
+  "provisions": [
+    {
+      "id": "ph-hash-001",
+      "description": "1987 Constitution Article III Section 3 -- privacy of communication and correspondence shall be inviolable; constitutional basis for data privacy legislation",
+      "upstream_url": "https://lawphil.net/consti/cons1987.html",
+      "selector_hint": "Article III Section 3 - Privacy of communication",
+      "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+      "expected_snippet": "privacy of communication and correspondence shall be inviolable"
+    },
+    {
+      "id": "ph-hash-002",
+      "description": "Data Privacy Act 2012 (RA 10173) Section 1 -- short title",
+      "upstream_url": "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html",
+      "selector_hint": "Section 1 - Short Title",
+      "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+      "expected_snippet": "Data Privacy Act of 2012"
+    },
+    {
+      "id": "ph-hash-003",
+      "description": "Cybercrime Prevention Act 2012 (RA 10175) Section 1 -- short title",
+      "upstream_url": "https://lawphil.net/statutes/repacts/ra2012/ra_10175_2012.html",
+      "selector_hint": "Section 1 - Short Title",
+      "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+      "expected_snippet": "Cybercrime Prevention Act of 2012"
+    },
+    {
+      "id": "ph-hash-004",
+      "description": "Revised Corporation Code 2019 (RA 11232) Section 1 -- title of the Code",
+      "upstream_url": "https://lawphil.net/statutes/repacts/ra2019/ra_11232_2019.html",
+      "selector_hint": "Section 1 - Title",
+      "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+      "expected_snippet": "Revised Corporation Code of the Philippines"
+    },
+    {
+      "id": "ph-hash-005",
+      "description": "E-Commerce Act 2000 (RA 8792) Section 1 -- short title",
+      "upstream_url": "https://lawphil.net/statutes/repacts/ra2000/ra_8792_2000.html",
+      "selector_hint": "Section 1 - Short Title",
+      "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+      "expected_snippet": "Electronic Commerce Act"
+    },
+    {
+      "id": "ph-hash-006",
+      "description": "Consumer Act (RA 7394) Section 1 -- short title",
+      "upstream_url": "https://lawphil.net/statutes/repacts/ra1992/ra_7394_1992.html",
+      "selector_hint": "Section 1 - Short Title",
+      "expected_sha256": "COMPUTE_ON_FIRST_INGEST",
+      "expected_snippet": "Consumer Act of the Philippines"
+    }
+  ]
+}

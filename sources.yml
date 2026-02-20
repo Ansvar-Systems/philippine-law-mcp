@@ -1,0 +1,68 @@
+# sources.yml
+schema_version: "1.0"
+mcp_name: "Philippine Law MCP"
+jurisdiction: "PH"
+
+sources:
+  - name: "Philippine Laws and Jurisprudence Databank (LawPhil)"
+    authority: "LawPhil Project / Arellano Law Foundation"
+    official_portal: "https://lawphil.net"
+    canonical_identifier: "N/A (Philippine legislation identified by Republic Act number, e.g., 'RA 10173')"
+    retrieval_method: "HTML_SCRAPE"
+    api_documentation: "N/A (structured web interface with comprehensive legislation and jurisprudence database)"
+    update_frequency: "weekly"
+    last_ingested: "PENDING_FIRST_INGEST"
+    license_or_terms:
+      type: "Open Access"
+      url: "https://lawphil.net"
+      summary: "LawPhil is the most comprehensive free online database of Philippine laws, statutes, and jurisprudence; maintained by the Arellano Law Foundation; legislation text is publicly accessible as government work product"
+    coverage:
+      scope: "Republic Acts (RA), Commonwealth Acts (CA), Presidential Decrees (PD), Executive Orders (EO), and the 1987 Constitution; covers the Data Privacy Act 2012 (RA 10173), Cybercrime Prevention Act 2012 (RA 10175), SIM Registration Act 2022 (RA 11934), E-Commerce Act 2000 (RA 8792), Revised Corporation Code 2019 (RA 11232), and Consumer Act (RA 7394)"
+      limitations: "Some recently enacted laws may have a delay before appearing; implementing rules and regulations (IRR) may not be included for all laws; primarily in English with some Filipino provisions"
+    languages:
+      - "en"
+      - "fil"
+
+  - name: "Official Gazette of the Republic of the Philippines"
+    authority: "Office of the President, Republic of the Philippines"
+    official_portal: "https://www.officialgazette.gov.ph"
+    canonical_identifier: "N/A"
+    retrieval_method: "HTML_SCRAPE"
+    api_documentation: "N/A"
+    update_frequency: "weekly"
+    last_ingested: "PENDING_FIRST_INGEST"
+    license_or_terms:
+      type: "Government Open Data"
+      url: "https://www.officialgazette.gov.ph"
+      summary: "Official publication of the Republic of the Philippines; laws take effect 15 days after publication in the Official Gazette or in a newspaper of general circulation unless otherwise provided"
+    coverage:
+      scope: "Newly enacted Republic Acts, Executive Orders, Presidential Proclamations, and Administrative Orders; official text as signed and published"
+      limitations: "Historical legislation may not be fully digitized; primarily covers recent legislation and executive issuances"
+    languages:
+      - "en"
+      - "fil"
+
+data_freshness:
+  automated_checks: true
+  check_frequency: "weekly"
+  last_verified: "PENDING_FIRST_INGEST"
+
+# Notes:
+# - The Philippines uses a mixed legal system combining civil law (Spanish heritage) and
+#   common law (American heritage) with elements of customary and Islamic law (in Bangsamoro)
+# - The 1987 Constitution is the supreme law; Article III Section 3 protects the privacy
+#   of communication and correspondence
+# - The Data Privacy Act 2012 (RA 10173) is the comprehensive data protection law; the
+#   National Privacy Commission (NPC) is one of the most active DPAs in Asia
+# - RA 10175 (Cybercrime Prevention Act 2012) covers cyber offences, online libel, and
+#   law enforcement powers for cybercrime
+# - RA 11934 (SIM Registration Act 2022) requires registration of all SIM cards with
+#   data privacy implications
+# - The Philippines uses Republic Act (RA) numbering for legislation passed by Congress
+# - Legislation is primarily in English, which is one of the two official languages
+#   (with Filipino); English is the primary language of law and courts
+# - The NPC has been actively pursuing EU GDPR adequacy status
+# - The Philippines is an ASEAN member and participates in ASEAN data governance frameworks
+# - Population of 110M+; rapidly growing digital economy
+# - Implementing Rules and Regulations (IRR) are issued for most major laws and provide
+#   detailed compliance requirements

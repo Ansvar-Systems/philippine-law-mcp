@@ -1,6 +1,6 @@
 {
   "name": "@ansvar/philippine-law-mcp",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "mcpName": "eu.ansvar/philippine-law-mcp",
   "description": "Philippine law database covering 11,600+ Republic Acts (1946-2024), the 1987 Constitution, and the Revised Penal Code with full-text search",
   "author": "Ansvar Systems <hello@ansvar.eu>",

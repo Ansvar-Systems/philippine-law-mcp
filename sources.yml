@@ -7,21 +7,20 @@ sources:
   - name: "Philippine Laws and Jurisprudence Databank (LawPhil)"
     authority: "LawPhil Project / Arellano Law Foundation"
     official_portal: "https://lawphil.net"
-    canonical_identifier: "N/A (Philippine legislation identified by Republic Act number, e.g., 'RA 10173')"
+    canonical_identifier: "Republic Act number (e.g., 'RA 10173'), Act number (e.g., 'Act No. 3815')"
     retrieval_method: "HTML_SCRAPE"
-    api_documentation: "N/A (structured web interface with comprehensive legislation and jurisprudence database)"
+    api_documentation: "N/A (structured web interface with comprehensive legislation database)"
     update_frequency: "weekly"
-    last_ingested: "PENDING_FIRST_INGEST"
+    last_ingested: "2026-02-26"
     license_or_terms:
       type: "Open Access"
       url: "https://lawphil.net"
-      summary: "LawPhil is the most comprehensive free online database of Philippine laws, statutes, and jurisprudence; maintained by the Arellano Law Foundation; legislation text is publicly accessible as government work product"
+      summary: "LawPhil is the most comprehensive free online database of Philippine laws; maintained by the Arellano Law Foundation under Creative Commons Attribution-NonCommercial 4.0; legislation text is government work product"
     coverage:
-      scope: "Republic Acts (RA), Commonwealth Acts (CA), Presidential Decrees (PD), Executive Orders (EO), and the 1987 Constitution; covers the Data Privacy Act 2012 (RA 10173), Cybercrime Prevention Act 2012 (RA 10175), SIM Registration Act 2022 (RA 11934), E-Commerce Act 2000 (RA 8792), Revised Corporation Code 2019 (RA 11232), and Consumer Act (RA 7394)"
-      limitations: "Some recently enacted laws may have a delay before appearing; implementing rules and regulations (IRR) may not be included for all laws; primarily in English with some Filipino provisions"
+      scope: "11,600+ Republic Acts (RA 1 from 1946 to RA 12036 from 2024), the 1987 Constitution, and the Revised Penal Code (Act No. 3815). Census-first full corpus ingestion."
+      limitations: "Some very recently enacted laws may have a delay before appearing; Implementing Rules and Regulations (IRR) not systematically included; Presidential Decrees, Executive Orders, and Batas Pambansa not yet covered in this release"
     languages:
       - "en"
-      - "fil"
 
   - name: "Official Gazette of the Republic of the Philippines"
     authority: "Office of the President, Republic of the Philippines"
@@ -30,14 +29,14 @@ sources:
     retrieval_method: "HTML_SCRAPE"
     api_documentation: "N/A"
     update_frequency: "weekly"
-    last_ingested: "PENDING_FIRST_INGEST"
+    last_ingested: "SUPPLEMENTARY_SOURCE"
     license_or_terms:
       type: "Government Open Data"
       url: "https://www.officialgazette.gov.ph"
       summary: "Official publication of the Republic of the Philippines; laws take effect 15 days after publication in the Official Gazette or in a newspaper of general circulation unless otherwise provided"
     coverage:
-      scope: "Newly enacted Republic Acts, Executive Orders, Presidential Proclamations, and Administrative Orders; official text as signed and published"
-      limitations: "Historical legislation may not be fully digitized; primarily covers recent legislation and executive issuances"
+      scope: "Newly enacted Republic Acts, Executive Orders, Presidential Proclamations, and Administrative Orders"
+      limitations: "Used as supplementary reference; primary ingestion is from LawPhil"
     languages:
       - "en"
       - "fil"
@@ -45,7 +44,7 @@ sources:
 data_freshness:
   automated_checks: true
   check_frequency: "weekly"
-  last_verified: "PENDING_FIRST_INGEST"
+  last_verified: "2026-02-26"
 
 # Notes:
 # - The Philippines uses a mixed legal system combining civil law (Spanish heritage) and
@@ -64,5 +63,6 @@ data_freshness:
 # - The NPC has been actively pursuing EU GDPR adequacy status
 # - The Philippines is an ASEAN member and participates in ASEAN data governance frameworks
 # - Population of 110M+; rapidly growing digital economy
-# - Implementing Rules and Regulations (IRR) are issued for most major laws and provide
-#   detailed compliance requirements
+# - Implementing Rules and Regulations (IRR) are issued for most major laws
+# - Census approach: scrape the main Republic Acts index page at lawphil.net/statutes/repacts/
+#   which lists all 11,600+ Republic Acts in a single HTML table

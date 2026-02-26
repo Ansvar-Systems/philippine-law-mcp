@@ -2,7 +2,7 @@
   "$schema": "./golden-tests.schema.json",
   "version": "1.0",
   "mcp_name": "Philippine Law MCP",
-  "description": "Golden contract tests for the Philippine Law MCP covering Data Privacy Act, Cybercrime Prevention Act, SIM Registration Act, E-Commerce Act, Revised Corporation Code, and Consumer Act",
+  "description": "Golden contract tests for the Philippine Law MCP covering 11,600+ Republic Acts, the 1987 Constitution, and the Revised Penal Code",
   "tests": [
     {
       "id": "ph-001",
@@ -10,8 +10,8 @@
       "description": "Retrieve Section 3 of the Data Privacy Act 2012 (RA 10173) -- definition of terms including personal information",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 10173",
-        "article": "3"
+        "document_id": "ra-10173-data-privacy-act",
+        "section": "3"
       },
       "assertions": {
         "result_not_empty": true,
@@ -26,8 +26,8 @@
       "description": "Retrieve Section 3 of the Cybercrime Prevention Act 2012 (RA 10175) -- definition of terms",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 10175",
-        "article": "3"
+        "document_id": "ra-10175-cybercrime-prevention",
+        "section": "3"
       },
       "assertions": {
         "result_not_empty": true,
@@ -42,8 +42,8 @@
       "description": "Retrieve Section 1 of the Revised Corporation Code 2019 (RA 11232) -- title and scope",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 11232",
-        "article": "1"
+        "document_id": "ra-11232",
+        "section": "1"
       },
       "assertions": {
         "result_not_empty": true,
@@ -58,8 +58,8 @@
       "description": "Retrieve Section 1 of the E-Commerce Act 2000 (RA 8792) -- short title",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 8792",
-        "article": "1"
+        "document_id": "ra-8792",
+        "section": "1"
       },
       "assertions": {
         "result_not_empty": true,
@@ -116,8 +116,8 @@
       "description": "Citation for Data Privacy Act Section 11 (general data privacy principles) includes lawphil.net URL pattern",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 10173",
-        "article": "11"
+        "document_id": "ra-10173-data-privacy-act",
+        "section": "11"
       },
       "assertions": {
         "result_not_empty": true,
@@ -131,8 +131,8 @@
       "description": "Citation for Consumer Act Section 1 includes official identifier",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 7394",
-        "article": "1"
+        "document_id": "ra-7394",
+        "section": "1"
       },
       "assertions": {
         "result_not_empty": true,
@@ -142,15 +142,15 @@
     },
     {
       "id": "ph-010",
-      "category": "eu_cross_reference",
-      "description": "Data Privacy Act cross-reference to GDPR -- Philippines seeking EU adequacy decision",
-      "tool": "get_provision_eu_basis",
+      "category": "search",
+      "description": "Search for recent Republic Acts about financial scamming (RA 12010, 2024)",
+      "tool": "search_legislation",
       "input": {
-        "law_identifier": "Republic Act No. 10173"
+        "query": "financial scamming"
       },
       "assertions": {
         "result_not_empty": true,
-        "any_result_contains": ["GDPR", "General Data Protection Regulation", "2016/679", "adequacy"]
+        "min_results": 1
       }
     },
     {
@@ -159,8 +159,8 @@
       "description": "Non-existent Republic Act returns graceful error or empty result",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 99999 Fictional Space Law",
-        "article": "1"
+        "document_id": "ra-99999-fictional",
+        "section": "1"
       },
       "assertions": {
         "handles_gracefully": true
@@ -172,8 +172,8 @@
       "description": "Malformed section number returns graceful error or empty result",
       "tool": "get_provision",
       "input": {
-        "law_identifier": "Republic Act No. 10173",
-        "article": "999ZZZ-INVALID"
+        "document_id": "ra-10173-data-privacy-act",
+        "section": "999ZZZ-INVALID"
       },
       "assertions": {
         "handles_gracefully": true

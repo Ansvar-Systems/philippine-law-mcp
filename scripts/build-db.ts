@@ -370,8 +370,12 @@ function buildDatabase(): void {
   let totalEuReferences = 0;
   const primaryImplementationByDocument = new Set<string>();
 
+  console.log(`  Loading ${seedFiles.length} seed files...\n`);
+  const loadStartTime = Date.now();
+
   const loadAll = db.transaction(() => {
-    for (const file of seedFiles) {
+    for (let fi = 0; fi < seedFiles.length; fi++) {
+      const file = seedFiles[fi];
       const filePath = path.join(SEED_DIR, file);
       const content = fs.readFileSync(filePath, 'utf-8');
       const seed = JSON.parse(content) as DocumentSeed;
@@ -383,6 +387,11 @@ function buildDatabase(): void {
         seed.url ?? null, seed.description ?? null,
       );
       totalDocs++;
+
+      if ((fi + 1) % 500 === 0) {
+        const elapsed = ((Date.now() - loadStartTime) / 1000).toFixed(0);
+        console.log(`  [${fi + 1}/${seedFiles.length}] ${totalDocs} docs, ${totalProvisions} provisions (${elapsed}s)`);
+      }
 
       if (seed.provisions && seed.provisions.length > 0) {
         const deduped = dedupeProvisions(seed.provisions);

@@ -11,3 +11,5 @@ coverage/
 data/source/
 data/seed/
 .vercel
+.claude/
+.serena/
